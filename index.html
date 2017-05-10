@@ -1,0 +1,927 @@
+<html>
+
+<head>
+<script src="jquery-3.2.1.min.js"></script>
+  
+<style type="text/css"> 
+/* modal codes start*/
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content { 
+    background-color: #fefefe;
+    margin: 5% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 72%; /* Could be more or less, depending on screen size */
+    height: 60%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content .title{
+	padding-top: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	font-size: 30px;
+	font-family: Arial;
+	font-weight: bold;
+} 
+
+.modal-content .content{
+	padding-top: 50px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center; 
+	font-family : Arial ;
+	font-size: 12px;
+	color : #9e9e9e;
+	letter-spacing: 2px;
+}
+
+/* The Close Button */
+.close {
+    color: #000000;
+display: flex;
+justify-content: center;
+align-items: center; 
+    float: right; 
+ 
+    font-size: 18px;
+    font-weight: bold;
+	border-style: solid;
+	border-width: 1px;
+	padding: 5px;
+	height: 20px;
+	width: 20px;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/* modal codes end*/
+
+/* slider codes start*/
+.page1 .slideLeftButton
+{  
+position: absolute;
+left: 15%; 
+top: 40%;
+display: flex;
+align-items: center;   
+color: #ffffff;
+font-size: 40px;
+font-famiy: Arial Black;
+font-weight: bold;
+cursor : pointer;
+z-index: 999;
+}
+
+.page1 .slideRightButton
+{ 
+position: absolute;
+left: 85%; 
+top: 40%;
+color: #ffffff;
+font-size: 40px;
+font-famiy: Arial Black;
+font-weight: bold;
+cursor : pointer;
+z-index: 999;
+
+}
+
+/* create circle button*/
+.page1 .circleSlider { 
+display: flex;
+align-items: center;
+justify-content: center; 
+margin-top: -60px;
+z-index: 999;
+}
+
+/* selected circle */
+.page1 .circleSlider .selectedCircle {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #828282;
+  line-height: 500px;
+  text-align: center;
+  background: #828282
+}
+
+/* circle 1 */
+.page1 .circleSlider .circle1 {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #828282;
+  line-height: 500px;
+  text-align: center;
+  background: #434343
+}
+
+/* circle 2 */
+.page1 .circleSlider .circle2 {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #828282;
+  line-height: 500px;
+  text-align: center;
+  background: #434343
+}
+
+/* circle 3 */
+.page1 .circleSlider .circle3 {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  font-size: 50px;
+  color: #828282;
+  line-height: 500px;
+  text-align: center;
+  background: #434343
+}
+/* slider codes end*/
+</style>
+
+<style type="text/css">
+.container
+{
+width : 75%;
+background-color: #1a1a1a;
+}
+.page1
+{
+}
+.page1 .img1
+{
+z-index: 1;
+width: 100%;
+
+}
+.page1 .titlebar
+{
+display: flex;
+align-items: center;
+color: #ffffff;
+font-family : Arial ;
+font-size: 12px;
+letter-spacing: 2px;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+
+.page1 .titlebar .logo
+{
+display: flex;
+justify-content: center; 
+align-items: center;
+background-color:#2e2e2e;
+color : #9e9e9e;
+width: 30px;
+height: 30px;
+}
+
+.page1 .titlebar .projectname
+{ 
+text-align: right;
+width : 100%;
+}
+
+.page2
+{
+width:100%;
+  flex: 100%;  
+  flex-wrap: wrap;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #1a1a1a; 
+text-align: center;
+}
+.page2 .title
+{ 
+padding-top: 80px;
+padding-bottom: 20px;
+width:100%; 
+font-family : Arial;
+font-size: 50;
+color : #ffffff;
+letter-spacing: 25px;
+}
+.page2 .content1
+{
+width:100%;
+padding-bottom: 40px;
+font-family : Arial ;
+font-size: 16; 
+letter-spacing: 2px;
+color : #9e9e9e;
+}
+.page2 .content2
+{
+width:80%; 
+font-family : Arial ;
+font-size: 12px;
+color : #9e9e9e;
+letter-spacing: 2px;
+padding-bottom: 40px;
+}
+.page2 .content3
+{
+width:100%; ;
+display: flex;
+justify-content: center;
+padding-bottom: 40px;
+}
+
+/* on hover not yet done. revisit later*/
+.page2 .content3 .btnVisitSite
+{
+width: 200px;
+height: 60px;
+border-style: solid;
+border-width : 2px;
+border-color : #ffffff;
+display: flex;
+align-items: center;
+justify-content: center;
+color : #ffffff;
+font-family: Arial;
+font-size: 15;
+letter-spacing: 5px;
+
+}
+
+/* modal button not yet done. revisit later*/
+.page3 .img1
+{
+width: 100%;
+
+}
+
+
+.page3 .footer
+{
+padding-top: 40px;
+padding-bottom: 40px;
+width:100%;
+flex: 100%;  
+flex-wrap: wrap;
+display: flex;
+align-items: center;
+justify-content: center; 
+height: 120px; 
+}
+.page3 .footer .title
+{
+width:100%;
+display: flex;
+justify-content: center; 
+font-family : Arial ;
+font-size: 20;
+font-weight: bold;
+color : #ffffff;
+letter-spacing: 5px;
+}
+.page3 .footer .content1
+{ 
+text-align: center;
+width:100%;
+display: flex; 
+justify-content: center; 
+font-family : Arial ;
+font-size: 16;
+color : #9e9e9e;
+    line-height: 150%;
+}
+.page4 .content1
+{
+flex-wrap: no-wrap;
+padding: 0px;
+spacing: 0px;
+}
+.page4 .content1 .img50percent
+{
+width:47%;
+padding-bottom: 80px;
+}
+
+.page5 
+{
+background-color: #ffffff;
+height: 500px;
+
+    margin-left:-100%;
+    margin-right:-100%;
+}
+.page5 .title
+{
+width:100%;
+display: flex;
+justify-content: center; 
+font-family : Arial ;
+font-size: 20;
+font-weight: bold;
+color : #000000;
+letter-spacing: 5px;
+padding-top: 40px;
+padding-bottom: 40px;
+}
+.page5 .content1
+{ 
+text-align: left;
+width:100%;
+display: flex; 
+justify-content: center; 
+font-family : Arial ;
+font-size: 16;
+color : #9e9e9e;
+    line-height: 130%;
+}
+
+
+.page6 .title
+{ 
+padding-bottom: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+padding-top: 25px;
+width:100%; 
+font-family : Arial Black;
+font-size: 50;
+color : #ffffff;
+letter-spacing: 25px;
+}
+.page6 .footer
+{
+padding-top: 40px;
+padding-bottom: 40px;
+width:100%;
+flex: 100%;  
+flex-wrap: wrap;
+display: flex;
+align-items: center;
+justify-content: center; 
+}
+.page6 .footer .title
+{
+width:100%;
+display: flex;
+justify-content: center; 
+font-family : Arial ;
+font-size: 20;
+font-weight: bold;
+color : #ffffff;
+letter-spacing: 5px;
+}
+.page6 .footer .content1
+{ 
+text-align: center;
+width:100%;
+display: flex; 
+justify-content: center; 
+font-family : Arial ;
+font-size: 16;
+color : #9e9e9e;
+    line-height: 130%;
+}
+
+.page7 
+{
+}
+.page7 .row1
+{
+display: flex; 
+padding-bottom: 5px;
+}
+.page7 .row1 .content1
+{
+width : 20%;
+}
+.page7 .row1 .content1 .title
+{
+width : 80%;
+border-top-style: solid;
+border-top-color: #ffffff;
+border-top-width: 1px;
+padding-top: 10px;
+text-align: right;
+color: #ffffff;
+font-family: Arial;
+letter-spacing: 2px;
+font-size: 13px;
+}
+.page7 .row1 .content1 .content
+{
+width : 80%; 
+padding-top: 10px;
+text-align: right;
+color: #9e9e9e;
+font-family: Arial; 
+font-size: 10px;
+line-height: 150%;
+}
+.page7 .row1 .content2
+{
+width : 80%;
+}
+
+.page7 .row1 .content2 .img1
+{
+width: 100%;
+
+}
+
+.page7 .row2
+{
+display: flex; 
+}
+.page7 .row2 .content1
+{
+width : 20%;
+}
+.page7 .row2 .content1 .title1
+{
+width : 80%;
+border-top-style: solid;
+border-top-color: #ffffff;
+border-top-width: 1px;
+padding-top: 10px;
+text-align: right;
+color: #ffffff;
+font-family: Arial;
+letter-spacing: 2px;
+font-size: 13px;
+}
+.page7 .row2 .content1 .title2
+{
+width : 80%;
+border-top-style: solid;
+border-top-color: #ffffff;
+border-top-width: 1px;
+padding-top: 10px;
+text-align: right;
+color: #ffffff;
+font-family: Arial;
+letter-spacing: 2px;
+font-size: 13px;
+}
+.page7 .row2 .content1 .content
+{
+width : 80%; 
+padding-top: 10px;
+text-align: right;
+color: #9e9e9e;
+font-family: Arial; 
+font-size: 10px;
+line-height: 150%;
+padding-bottom: 30px;
+}
+.page7 .row2 .content2
+{
+width : 80%;
+}
+
+.page7 .row2 .content2 .img1
+{
+width: 49%;
+
+}
+
+.page7 .row2 .content2 .img2
+{
+width: 49%;
+
+}
+.page8{
+border-top-style: solid;
+border-top-width: 1px;
+border-top-color: #9e9e9e;
+}
+.page8 .title
+{
+padding-top: 50px;
+width:100%;
+display: flex;
+justify-content: center; 
+font-family : Arial ;
+font-size: 20;
+font-weight: bold;
+color : #ffffff;
+letter-spacing: 5px;
+}
+.page8 .content1
+{ 
+padding-top: 10px;
+padding-bottom: 50px;
+text-align: center;
+width:100%;
+display: flex; 
+justify-content: center; 
+font-family : Arial ;
+font-size: 16;
+color : #9e9e9e;
+    line-height: 130%;
+}
+
+.page8 .content2  {
+display: flex;
+align-items: center;
+justify-content: center;
+font-family : Arial ;
+font-size: 13;
+color : #9e9e9e;
+}
+.page8 .content2 .title
+{
+width:100%;
+display: flex;
+justify-content: center; 
+font-family : Arial ;
+font-size: 15;
+font-weight: bold;
+color : #ffffff;
+letter-spacing: 5px;
+}
+
+
+.page8 .content2 .column1{
+display: flex; 
+flex-wrap: wrap;
+width: 24%;
+padding : 2px;
+} 
+
+.page8 .content2 .column1 .content1{
+font-family : Arial ;
+font-size: 13;
+color : #9e9e9e;
+text-align: center;
+} 
+.page8 .content2 .img1
+{
+padding-bottom: 15px;
+width: 100%;
+height: 100px;
+
+}
+body
+{
+width : 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: #1a1a1a;
+}
+</style>
+
+</head>
+
+<body>
+
+
+<script type="text/javascript">
+var selectedNode = 1;
+var mainArray = [];
+var leftNode = {};
+var rightNode = {};
+var midNode = {};
+
+function addMainArray(data)
+{
+	var tempObj = {};
+	tempObj.id = mainArray.length;
+	tempObj.src = data;
+	mainArray.push(tempObj);
+}
+
+function getObject(num)
+{
+	for(var i=0;i<mainArray.length;i++)
+	{
+		if(mainArray[i].id == num)
+		{
+			return mainArray[i]; 
+		}
+	}
+	return null;
+}
+
+function getLeftObject(num)
+{
+	var leftNodeNum = num - 1;
+	
+	if(leftNodeNum < 0)
+	{
+		leftNodeNum = mainArray.length -1;
+	}
+	return mainArray[leftNodeNum]; 
+}
+
+function getRightObject(num)
+{
+	var rightNodeNum = num + 1;
+	
+	if(rightNodeNum >= mainArray.length  )
+	{
+		rightNodeNum = 0;
+	}
+	return mainArray[rightNodeNum]; 
+}
+
+function setMid(num)
+{	
+	midNode = getObject(num);
+	leftNode = getLeftObject(num);
+	rightNode = getRightObject(num);
+}
+
+function slideLeft(num)
+{	
+	midNode = getRightObject(num);
+	leftNode = getLeftObject(midNode.id);
+	rightNode = getRightObject(midNode.id);
+}
+
+function slideRight(num)
+{	
+	midNode = getLeftObject(num);
+	leftNode = getLeftObject(midNode.id);
+	rightNode = getRightObject(midNode.id);
+}
+
+
+function onLeftClick()
+{
+	slideLeft(midNode.id);
+	refreshPage();
+}
+
+function onRightClick()
+{
+	slideRight(midNode.id); 
+	refreshPage();
+}
+
+function refreshPage()
+{ 	 
+	$("#imgMid").attr("src",midNode.src); 
+	
+	if(selectedNode > mainArray.length)
+	{
+		selectedNode = 1;
+	} 
+	
+	for(var i=1; i<= mainArray.length;i++)
+	{
+	$("#sliderNode" + i).removeClass("selectedCircle").addClass("circle1"); 
+	}
+	$("#sliderNode" + selectedNode).removeClass("circle1").addClass("selectedCircle"); 
+	selectedNode++;
+}
+
+function constructor()
+{
+	addMainArray("image/empty_image.jpg");
+	addMainArray("image/empty_image2.jpg");
+	addMainArray("image/empty_image3.jpg");
+	setMid(0);
+	refreshPage();
+}
+
+/* Modal click on Image*/
+function onMainImgClick()
+{ 
+	var modal = document.getElementById('myModal');
+    modal.style.display = "block";
+}
+
+/* Modal click on close button*/
+function onModalCloseClick()
+{
+	var modal = document.getElementById('myModal');
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+	var modal = document.getElementById('myModal');
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+
+$(document).ready(function(){
+	constructor();
+});
+
+//test array 
+//document.write(JSON.stringify(mainArray));
+for(var i=0;i<mainArray.length;i++)
+{
+	//document.write( mainArray.length + "_" + mainArray + "," ); 	
+}
+</script>
+
+
+<div id="container" class="container">
+
+<div class="page1">
+<div class="titlebar"><div class="logo">D</div><div class="projectname">PROJECT NAME</div></div>
+<img class="img1" id="imgMid" src="image/empty_image.jpg" onclick="onMainImgClick()" />
+<div id="slideLeftButton" class="slideLeftButton" onclick="onLeftClick()">&lt;</div>
+<div id="slideRightButton" class="slideRightButton" onclick="onRightClick()">&gt;</div>
+<div class="circleSlider">
+<div id="sliderNode1" class="circle1" > </div>
+<div id="sliderNode2" class="circle1" > </div>
+<div id="sliderNode3" class="circle1" > </div>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" onclick="onModalCloseClick()">&times;</span>
+	<div class="title">MODAL
+	</div>
+	<div class="content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit<br /> ullamcorper dui et congue. Vivamus dignissim nisi vel mollis porta. Fusce vel <br />ultricies purus. In consectetur nibh odio, mattis varius purus faucibus in.  </div> 
+  </div>
+
+</div>
+
+</div>
+
+<div class="page2">
+<div class="title">PROJECT NAME</div>
+<div class="content1">SERVICE OFFERING <i>for</i> CLIENT NAME</div>
+<div class="content2	">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam hendrerit<br /> ullamcorper dui et congue. Vivamus dignissim nisi vel mollis porta. Fusce vel <br />ultricies purus. In consectetur nibh odio, mattis varius purus faucibus in.  
+</div>
+<div class="content3">
+<div class="btnVisitSite">
+VISIT SITE
+</div>
+</div>
+
+</div>
+
+<div class="page3">
+<img class="img1" src="image/empty_image.jpg" />
+<div class="footer">
+<div class="title">BLURB</div>
+<div class="content1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam<br />
+hendrerit ullamcorper dui et congue. Vivamus dignissim nisi<br />
+vel mollis porta
+</div>
+</div>
+
+</div>
+
+<div class="page4">
+<img class="img1" src="image/empty_image.jpg" />
+<div class="content1">
+<img class="img50percent" src="image/empty_image.jpg" />
+<img class="img50percent" src="image/empty_image.jpg" />
+
+</div>
+
+</div>
+
+<div class="page5">
+ 
+<div class="title">BREAKOUT AREA</div>
+<div class="content1">Lorem ipsum dolor sit amet, consectetur <br />adipiscing elit. Nam
+hendrerit ullamcorper dui<br /> et congue. Vivamus dignissim nisi
+vel<br /> mollis porta
+</div>  
+</div>
+
+<div class="page6">
+
+<div class="title">MORE LAYOUTS</div>
+<img class="img1" src="image/empty_image.jpg" />
+<div class="footer">
+<div class="title">BLURB</div>
+<div class="content1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam<br />
+hendrerit ullamcorper dui et congue. Vivamus dignissim nisi<br />
+vel mollis porta
+</div>
+</div>
+
+</div>
+
+<div class="page7">
+
+<div class="row1">
+<div class="content1">
+	<div class="title">IMAGE CAPTION</div>
+	<div class="content">Lorem ipsum dolor sit amet<br />
+						 consectetur adipiscing elit<br />
+						Nam hendrerit ullamcorper
+						</div>
+</div>
+<div class="content2">
+<img class="img1" src="image/empty_image.jpg" /></div>
+
+</div>
+
+<div class="row2">
+
+<div class="content1">
+	<div class="title1">IMAGE CAPTION</div>
+	<div class="content">Lorem ipsum dolor sit amet<br />
+						 consectetur adipiscing elit<br />
+						Nam hendrerit ullamcorper
+						</div>
+	<div class="title2">IMAGE CAPTION</div>
+	<div class="content">Lorem ipsum dolor sit amet<br />
+						 consectetur adipiscing elit<br />
+						Nam hendrerit ullamcorper
+						</div>
+</div>
+<div class="content2">
+<img class="img1" src="image/empty_image.jpg" />
+<img class="img2" src="image/empty_image.jpg" />
+</div>
+
+
+</div>
+
+</div>
+
+<div class="page8">
+
+<div class="title">MORE PROJECTS</div>
+<div class="content1">Lorem ipsum dolor sit amet 
+</div>
+
+<div class="content2">
+<div class="column1">
+
+<img class="img1" src="image/empty_image.jpg" />
+<div class="title">PROJECT NAME</div>
+<div class="content1">Lorem ipsum dolor sit amet 
+</div>
+
+</div>
+
+<div class="column1">
+
+<img class="img1" src="image/empty_image.jpg" />
+<div class="title">PROJECT NAME</div>
+<div class="content1">Lorem ipsum dolor sit amet 
+</div>
+
+</div>
+
+<div class="column1">
+
+<img class="img1" src="image/empty_image.jpg" />
+<div class="title">PROJECT NAME</div>
+<div class="content1">Lorem ipsum dolor sit amet 
+</div>
+
+</div>
+
+<div class="column1">
+
+<img class="img1" src="image/empty_image.jpg" />
+<div class="title">PROJECT NAME</div>
+<div class="content1">Lorem ipsum dolor sit amet 
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
